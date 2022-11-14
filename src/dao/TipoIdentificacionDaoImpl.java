@@ -15,7 +15,10 @@ import model.Conexion;
 import model.TipoIdentificacion;
 import utils.Mensajes;
 
-
+/**
+ *
+ * @author JULIO MARTINEZ
+ */
 public class TipoIdentificacionDaoImpl implements TipoIdentificacionDao{
 
     private Conexion conexion;

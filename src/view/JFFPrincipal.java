@@ -4,8 +4,11 @@
  */
 package view;
 
+import controller.EstadoCivilController;
 import controller.FuncionarioController;
 import controller.TipoIdentificacionController;
+import dao.EstadoCivilDao;
+import dao.EstadoCivilDaoImpl;
 import dao.FuncionarioDao;
 import dao.FuncionarioDaoImpl;
 import dao.TipoIdentificacionDao;
@@ -25,6 +28,7 @@ public class JFFPrincipal extends javax.swing.JFrame {
 
     private TipoIdentificacionController tipoIdCtrl;
     private FuncionarioController funcionarioCtrl;
+    private EstadoCivilController estadoCtrl;
     /**
      * Creates new form JFFPrincipal
      */
@@ -49,11 +53,19 @@ public class JFFPrincipal extends javax.swing.JFrame {
     }
     
     private void llenarComboEstadoCivil(){
+        
+        EstadoCivilDao estadoCivilDao = new EstadoCivilDaoImpl();
+        estadoCtrl = new EstadoCivilController(estadoCivilDao);
+        JCBEstadoCivil.setModel(estadoCtrl.llenarCombo());
         // TODO: Implementar parecido a llenarComboTipoDocumento()
     }
     
     private void llenarTablaFuncionarios(){
-        FuncionarioDao funcionarioDao = new FuncionarioDaoImpl();
+        FuncionarioDao funcionarioDao = new FuncionarioDaoImpl() {
+            public void delete(Funcionario documento) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
         funcionarioCtrl = new FuncionarioController(funcionarioDao);
         jTblFuncionarios.setModel(funcionarioCtrl.llenarTabla());
     }

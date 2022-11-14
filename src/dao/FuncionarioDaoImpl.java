@@ -13,10 +13,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import model.Conexion;
+import model.EstadoCivil;
 import model.Funcionario;
+import model.TipoIdentificacion;
 import utils.Mensajes;
 
-
+/**
+ *
+ * @author JULIO MARTINEZ
+ */
 public class FuncionarioDaoImpl implements FuncionarioDao{
 
     private Conexion conexion;
@@ -81,8 +86,8 @@ public class FuncionarioDaoImpl implements FuncionarioDao{
                 funcionario.setSexo(rS.getString("sexo").charAt(0));
                 funcionario.setDireccion(rS.getString("direccion"));
                 funcionario.setTelefono(rS.getString("telefono"));
-                  
-                              
+                funcionario.setTipoIdentificacion(new TipoIdentificacion(rS.getInt("tipoIdentificacion")));
+                funcionario.setEstadoCivil(new EstadoCivil(rS.getInt("estadoCivil")));
                 // setear el resto de campos obligatoriamente
             }
             pSt.close();
@@ -133,10 +138,11 @@ public class FuncionarioDaoImpl implements FuncionarioDao{
     @Override
     public int update(Funcionario funcionario) {
         int resultado = 0;
-        String sql = "UPDATE funcionarios SET tipo_identificacion = ?, "
-                + "numero_identificacion = ?, nombres = ?, apellidos = ?, "
-                + "estado_civil = ?, sexo = ?, direccion = ?, telefono = ?, "
-                + "fecha_nacimiento = ? WHERE id_funcionario = ?";
+        String sql = "UPDATE funcionarios SET numero_identificacion=?,"
+               + "nombres=?,apellidos=?,"
+               + "  sexo=?,direccion=?,telefono=?,fecha_nacimiento=?,"
+               + "tipos_identificacion_id=?,"
+               + "estados_civil_id=?";
         conexion = new Conexion();
         try {
             pSt = conexion.getCon().prepareStatement(sql);

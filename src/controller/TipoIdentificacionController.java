@@ -8,8 +8,10 @@ import dao.TipoIdentificacionDao;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import model.TipoIdentificacion;
-
-
+/**
+ *
+ * @author JULIO MARTINEZ
+ */
 public class TipoIdentificacionController {
     
     private TipoIdentificacionDao tipoIdentificacionDao;

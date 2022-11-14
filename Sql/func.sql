@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `estados_civil`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `estados_civil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `estado` varchar(45) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

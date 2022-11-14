@@ -7,7 +7,10 @@ package dao;
 import java.util.List;
 import model.EstadoCivil;
 
-
+/**
+ *
+ * @author JULIO MARTINEZ
+ */
 public interface EstadoCivilDao {
     List<EstadoCivil> findAll();
 }

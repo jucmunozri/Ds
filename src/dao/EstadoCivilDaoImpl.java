@@ -4,14 +4,50 @@
  */
 package dao;
 
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+import model.Conexion;
 import model.EstadoCivil;
+import utils.Mensajes;
+
+/**
+ *
+ * @author JULIO MARTINEZ
+ */
 
 public class EstadoCivilDaoImpl implements EstadoCivilDao{
 
+    private Conexion conexion;
+    private Statement st;
+    private ResultSet rS;
+    
+    
     @Override
-    public List<EstadoCivil> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     public List<EstadoCivil> findAll() {
+        List<EstadoCivil> estado = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM estados_civil";
+            conexion = new Conexion();
+            st = conexion.getCon().createStatement();
+            rS = st.executeQuery(sql);
+            while (rS.next()) {
+                EstadoCivil estadoCivil = new EstadoCivil();
+                estadoCivil.setId(rS.getInt("id"));
+                estadoCivil.setNombre(rS.getString("nombre"));
+                estadoCivil.setDescripcion(rS.getString("descripcion"));
+                estado.add(estadoCivil);
+            }
+            st.close();
+            rS.close();
+            conexion.getCon().close();
+        } catch (SQLException ex) {
+            Mensajes.mensajeError("Error de BBDD", ex.getMessage());
+        }
+        return estado;
     }
     
 }

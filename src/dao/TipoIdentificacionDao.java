@@ -7,7 +7,10 @@ package dao;
 import java.util.List;
 import model.TipoIdentificacion;
 
-
+/**
+ *
+ * @author JULIO MARTINEZ
+ */
 public interface TipoIdentificacionDao {
     List<TipoIdentificacion> findAll();
 }

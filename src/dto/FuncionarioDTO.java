@@ -6,7 +6,10 @@ package dto;
 
 import java.time.LocalDate;
 
-
+/**
+ *
+ * @author JULIO MARTINEZ
+ */
 public class FuncionarioDTO {
     
     private int id;

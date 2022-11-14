@@ -3,8 +3,8 @@ USE funcionarios;
 -- funcionarios
 INSERT INTO funcionarios(numero_identificacion, nombres, apellidos, sexo, direccion, telefono, fecha_nacimiento, tipos_identificacion_id, estados_civil_id)
 VALUES('111111', 'Julio', 'Martinez', 'M', 'Calle 20', '603522222', '1985-08-05', 1, 2), 
-	  ('1116489568', 'carlos', 'lopez', 'carrera 5', '5532563', '1982-02-02', 1, 1),
-      ('14333568', 'pedro', 'perez', 'carrera 85', '6085497', '1995-07-05', 1, 2);
+	  ('1116489568', 'carlos', 'lopez', 'M', 'carrera 5', '5532563', '1982-02-02', 1, 1),
+      ('14333568', 'pedro', 'perez', 'M', 'carrera 85', '6085497', '1995-07-05', 1, 2);
 
 SELECT * FROM funcionarios;
 
@@ -53,8 +53,7 @@ INSERT INTO estados_formacion(nombre, estado)
 VALUES ('ENP', 'En proceso');
 INSERT INTO estados_formacion(nombre, estado) 
 VALUES ('NA', 'No aprobado');
-INSERT INTO estados_formacion(nombre, estado) 
-VALUES ('OTRO', 'O');
+
 
 SELECT * FROM estados_formacion;
 

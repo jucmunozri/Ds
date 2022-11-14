@@ -8,7 +8,10 @@ import dto.FuncionarioDTO;
 import java.util.List;
 import model.Funcionario;
 
-
+/**
+ *
+ * @author JULIO MARTINEZ
+ */
 public interface FuncionarioDao {
     // se declaran los métodos del CRUD
     List<FuncionarioDTO> findAll();
